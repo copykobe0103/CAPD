@@ -119,27 +119,39 @@
                 </div>
                 <span id="currentMonthLabel" class="text-sm font-medium text-teal-700 bg-teal-50 px-3 py-1 rounded-full"></span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
-                <div class="bg-white p-3 sm:p-5 rounded-[26px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 flex flex-col justify-between">
-                    <span class="text-sm font-medium text-slate-500">近期 Kt/V 本月符合人數</span>
-                    <div class="mt-4 flex items-baseline gap-2">
-                        <span id="statKtvCount" class="text-4xl font-bold tracking-tight text-slate-950">0</span>
-                        <span class="text-sm font-medium text-slate-500">人次</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 Kt/V 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold text-teal-700">Kt/V</span>
                     </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statKtvCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statKtvNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
                 </div>
-                <div class="bg-white p-3 sm:p-5 rounded-[26px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 flex flex-col justify-between">
-                    <span class="text-sm font-medium text-slate-500">近期 PET 本月符合人數</span>
-                    <div class="mt-4 flex items-baseline gap-2">
-                        <span id="statPetCount" class="text-4xl font-bold tracking-tight text-slate-950">0</span>
-                        <span class="text-sm font-medium text-slate-500">人次</span>
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 PET 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-amber-50 px-4 py-1.5 text-sm font-semibold text-amber-800">PET</span>
                     </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statPetCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statPetNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
                 </div>
-                <div class="bg-white p-3 sm:p-5 rounded-[26px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 flex flex-col justify-between">
-                    <span class="text-sm font-medium text-slate-500">近期換管 本月符合人數</span>
-                    <div class="mt-4 flex items-baseline gap-2">
-                        <span id="statTubeCount" class="text-4xl font-bold tracking-tight text-slate-950">0</span>
-                        <span class="text-sm font-medium text-slate-500">人次</span>
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期換管 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-rose-50 px-4 py-1.5 text-sm font-semibold text-rose-700">換管</span>
                     </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statTubeCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statTubeNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
                 </div>
             </div>
         </section>
@@ -601,18 +613,44 @@
             const currentMonth = new Date().getMonth() + 1;
 
             try {
-                // 1. 近期Kt/V月份 本月符合
-                const { count: ktvCount, error: e1 } = await supabaseClient.from('capd_patients').select('*', { count: 'exact', head: true }).eq('recent_ktv_month', currentMonth);
-                // 2. 近期PET月份 本月符合
-                const { count: petCount, error: e2 } = await supabaseClient.from('capd_patients').select('*', { count: 'exact', head: true }).eq('recent_pet_month', currentMonth);
-                // 3. 近期換管月份 本月符合
-                const { count: tubeCount, error: e3 } = await supabaseClient.from('capd_patients').select('*', { count: 'exact', head: true }).eq('recent_tube_change_month', currentMonth);
+                // Fetch matching patient names for each indicator (so we can show both count and names)
+                const { data: ktvRows, error: e1 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_ktv_month', currentMonth).order('name', { ascending: true });
+                const { data: petRows, error: e2 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_pet_month', currentMonth).order('name', { ascending: true });
+                const { data: tubeRows, error: e3 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_tube_change_month', currentMonth).order('name', { ascending: true });
 
                 if (e1 || e2 || e3) throw (e1 || e2 || e3);
 
-                document.getElementById('statKtvCount').innerText = ktvCount || 0;
-                document.getElementById('statPetCount').innerText = petCount || 0;
-                document.getElementById('statTubeCount').innerText = tubeCount || 0;
+                document.getElementById('statKtvCount').innerText = (ktvRows && ktvRows.length) ? ktvRows.length : 0;
+                document.getElementById('statPetCount').innerText = (petRows && petRows.length) ? petRows.length : 0;
+                document.getElementById('statTubeCount').innerText = (tubeRows && tubeRows.length) ? tubeRows.length : 0;
+
+                const ktvNamesEl = document.getElementById('statKtvNames');
+                const petNamesEl = document.getElementById('statPetNames');
+                const tubeNamesEl = document.getElementById('statTubeNames');
+
+                if (ktvNamesEl) {
+                    if (!ktvRows || ktvRows.length === 0) {
+                        ktvNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                    } else {
+                        ktvNamesEl.innerHTML = ktvRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
+                    }
+                }
+
+                if (petNamesEl) {
+                    if (!petRows || petRows.length === 0) {
+                        petNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                    } else {
+                        petNamesEl.innerHTML = petRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
+                    }
+                }
+
+                if (tubeNamesEl) {
+                    if (!tubeRows || tubeRows.length === 0) {
+                        tubeNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                    } else {
+                        tubeNamesEl.innerHTML = tubeRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
+                    }
+                }
             } catch (err) {
                 console.error("讀取動態統計指標失敗:", err.message);
             }
@@ -852,9 +890,16 @@
                 { medical_record_no: "24115098", name: "王大同", primary_nurse: "第二組", prescription: "CAPD 2.5Lx3", recent_ktv_month: 6, ktv_date_1: "2026-06-02", ktv_date_2: "2026-06-09", ktv_date_3: null, ktv_date_4: null, recent_pet_month: 6, recent_tube_change_month: 3, ktv_value_1: 1.65, ktv_value_2: 1.72, ktv_value_3: null, ktv_value_4: null }
             ];
             renderPatientTable(currentPatientsData);
-            document.getElementById('statKtvCount').innerText = "12";
-            document.getElementById('statPetCount').innerText = "5";
-            document.getElementById('statTubeCount').innerText = "3";
+            // demo counts/names
+            document.getElementById('statKtvCount').innerText = "2";
+            document.getElementById('statPetCount').innerText = "1";
+            document.getElementById('statTubeCount').innerText = "1";
+            const ktvNamesEl = document.getElementById('statKtvNames');
+            const petNamesEl = document.getElementById('statPetNames');
+            const tubeNamesEl = document.getElementById('statTubeNames');
+            if (ktvNamesEl) ktvNamesEl.innerHTML = currentPatientsData.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 hover:bg-teal-100">${r.name}</button>`).join('');
+            if (petNamesEl) petNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_pet_month).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 hover:bg-amber-100">${r.name}</button>`).join('');
+            if (tubeNamesEl) tubeNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_tube_change_month).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 hover:bg-rose-100">${r.name}</button>`).join('');
         }
     </script>
 </body>
