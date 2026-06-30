@@ -49,60 +49,18 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期 Kt/V 月份</label>
-                    <select id="filterKtvMonth" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
-                        <option value="">全部月份</option>
-                        <option value="1">1 月</option>
-                        <option value="2">2 月</option>
-                        <option value="3">3 月</option>
-                        <option value="4">4 月</option>
-                        <option value="5">5 月</option>
-                        <option value="6">6 月</option>
-                        <option value="7">7 月</option>
-                        <option value="8">8 月</option>
-                        <option value="9">9 月</option>
-                        <option value="10">10 月</option>
-                        <option value="11">11 月</option>
-                        <option value="12">12 月</option>
-                    </select>
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期 Kt/V 日期</label>
+                    <input type="date" id="filterKtvDate" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期 PET 月份</label>
-                    <select id="filterPetMonth" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
-                        <option value="">全部月份</option>
-                        <option value="1">1 月</option>
-                        <option value="2">2 月</option>
-                        <option value="3">3 月</option>
-                        <option value="4">4 月</option>
-                        <option value="5">5 月</option>
-                        <option value="6">6 月</option>
-                        <option value="7">7 月</option>
-                        <option value="8">8 月</option>
-                        <option value="9">9 月</option>
-                        <option value="10">10 月</option>
-                        <option value="11">11 月</option>
-                        <option value="12">12 月</option>
-                    </select>
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期 PET 日期</label>
+                    <input type="date" id="filterPetDate" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期換管月份</label>
-                    <select id="filterTubeMonth" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
-                        <option value="">全部月份</option>
-                        <option value="1">1 月</option>
-                        <option value="2">2 月</option>
-                        <option value="3">3 月</option>
-                        <option value="4">4 月</option>
-                        <option value="5">5 月</option>
-                        <option value="6">6 月</option>
-                        <option value="7">7 月</option>
-                        <option value="8">8 月</option>
-                        <option value="9">9 月</option>
-                        <option value="10">10 月</option>
-                        <option value="11">11 月</option>
-                        <option value="12">12 月</option>
-                    </select>
+                    <label class="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.24em]">近期 換管 日期</label>
+                    <input type="date" id="filterTubeDate" onchange="fetchPatients()" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3 text-sm text-slate-800 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200 transition">
                 </div>
             </div>
             
@@ -170,7 +128,7 @@
                             <th class="py-2 sm:py-4 px-2 sm:px-4">主護</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">處方 / Order</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">總量</th>
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">Kt/V月份</th>
+                            <th class="py-2 sm:py-4 px-2 sm:px-4">Kt/V 日期</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">PET月份</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">換管月份</th>
                             <th class="py-2 sm:py-4 px-1 sm:px-4 text-center">操作</th>
@@ -243,13 +201,20 @@
                     <h4 class="text-sm font-semibold text-slate-900">檢驗資料</h4>
                     <p class="text-xs text-slate-500">Kt/V 與 PET / 換管相關項目</p>
                 </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">近期 Kt/V 月份</label>
-                    <input type="number" id="form_recent_ktv_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">下次 Kt/V 月份</label>
-                    <input type="number" id="form_next_ktv_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div class="md:col-span-2 flex items-start gap-4">
+                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">近期 Kt/V 日期</label>
+                            <input type="date" id="form_recent_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">下次 Kt/V 日期</label>
+                            <input type="date" id="form_next_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" onclick="extendKtvDatesAndSave()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-semibold">Kt/V 自動展延 (+6月)</button>
+                    </div>
                 </div>
                 <div class="space-y-1">
                     <label class="text-xs font-bold text-slate-600">近期 PET</label>
@@ -259,21 +224,35 @@
                     <label class="text-xs font-bold text-slate-600">下次 PET</label>
                     <input type="text" id="form_next_pet" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
                 </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">近期 PET 月份</label>
-                    <input type="number" id="form_recent_pet_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div class="md:col-span-2 flex items-start gap-4">
+                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">近期 PET 日期</label>
+                            <input type="date" id="form_recent_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">下次 PET 日期</label>
+                            <input type="date" id="form_next_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" onclick="extendPetDates()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-semibold">PET 自動展延 (+6月)</button>
+                    </div>
                 </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">下次 PET 月份</label>
-                    <input type="number" id="form_next_pet_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">近期 換管 月份</label>
-                    <input type="number" id="form_recent_tube_change_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">下次 換管 月份</label>
-                    <input type="number" id="form_next_tube_change_month" min="1" max="12" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div class="md:col-span-2 flex items-start gap-4">
+                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">近期 換管 日期</label>
+                            <input type="date" id="form_recent_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-600">下次 換管 日期</label>
+                            <input type="date" id="form_next_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button type="button" onclick="extendTubeDates()" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-2xl font-semibold">換管 自動展延 (+6月)</button>
+                    </div>
                 </div>
                 <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
                     <h5 class="text-sm font-semibold text-slate-900">Kt/V 量測</h5>
@@ -314,6 +293,8 @@
                         <input type="date" id="form_ktv_date_4" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
                     </div>
                 </div>
+
+
 
                 <!-- 影像檢查 -->
                 <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
@@ -488,15 +469,11 @@
             initApp();
         }
 
-        // 生成  Ktv1-12 月下拉選單選項
+        // 初始化篩選日期欄位（預設空值）
         function initDropdownOptions() {
-            const dropdownIds = ['filterKtvMonth', 'filterPetMonth', 'filterTubeMonth'];
-            dropdownIds.forEach(id => {
-                const select = document.getElementById(id);
-                select.innerHTML = '<option value="">全部月份</option>';
-                for (let m = 1; m <= 12; m++) {
-                    select.innerHTML += `<option value="${m}">${m} 月</option>`;
-                }
+            ['filterKtvDate', 'filterPetDate', 'filterTubeDate'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
             });
         }
 
@@ -519,9 +496,9 @@
             if (!requireAuth('清除篩選')) return;
             document.getElementById('searchKey').value = '';
             document.getElementById('filterNurse').value = '';
-            document.getElementById('filterKtvMonth').value = '';
-            document.getElementById('filterPetMonth').value = '';
-            document.getElementById('filterTubeMonth').value = '';
+            document.getElementById('filterKtvDate').value = '';
+            document.getElementById('filterPetDate').value = '';
+            document.getElementById('filterTubeDate').value = '';
             fetchPatients();
         }
 
@@ -530,9 +507,9 @@
 
             const searchKey = document.getElementById('searchKey').value.trim();
             const nurse = document.getElementById('filterNurse').value;
-            const ktvMonth = document.getElementById('filterKtvMonth').value;
-            const petMonth = document.getElementById('filterPetMonth').value;
-            const tubeMonth = document.getElementById('filterTubeMonth').value;
+                const ktvDate = document.getElementById('filterKtvDate').value;
+                const petDate = document.getElementById('filterPetDate').value;
+                const tubeDate = document.getElementById('filterTubeDate').value;
 
             try {
                 let query = supabaseClient.from('capd_patients').select('*');
@@ -543,12 +520,27 @@
                 }
                 // 功能 2: 負責主護篩選
                 if (nurse) query = query.eq('primary_nurse', nurse);
-                // 功能 3: 近期Kt/V月份篩選
-                if (ktvMonth) query = query.eq('recent_ktv_month', parseInt(ktvMonth));
-                // 功能 4: 近期PET月份篩選
-                if (petMonth) query = query.eq('recent_pet_month', parseInt(petMonth));
-                // 功能 5: 近期換管月份篩選
-                if (tubeMonth) query = query.eq('recent_tube_change_month', parseInt(tubeMonth));
+                // 功能 3: 近期 Kt/V 日期 篩選（以選取日期的月份為範圍）
+                if (ktvDate) {
+                    const d = new Date(ktvDate);
+                    const start = new Date(d.getFullYear(), d.getMonth(), 1).toISOString().slice(0,10);
+                    const end = new Date(d.getFullYear(), d.getMonth()+1, 0).toISOString().slice(0,10);
+                    query = query.gte('recent_ktv_date', start).lte('recent_ktv_date', end);
+                }
+                // 功能 4: 近期 PET 日期 篩選
+                if (petDate) {
+                    const d = new Date(petDate);
+                    const start = new Date(d.getFullYear(), d.getMonth(), 1).toISOString().slice(0,10);
+                    const end = new Date(d.getFullYear(), d.getMonth()+1, 0).toISOString().slice(0,10);
+                    query = query.gte('recent_pet_date', start).lte('recent_pet_date', end);
+                }
+                // 功能 5: 近期 換管 日期 篩選
+                if (tubeDate) {
+                    const d = new Date(tubeDate);
+                    const start = new Date(d.getFullYear(), d.getMonth(), 1).toISOString().slice(0,10);
+                    const end = new Date(d.getFullYear(), d.getMonth()+1, 0).toISOString().slice(0,10);
+                    query = query.gte('recent_tube_change_date', start).lte('recent_tube_change_date', end);
+                }
 
                 // 排序優化
                 query = query.order('medical_record_no', { ascending: true });
@@ -589,13 +581,13 @@
                         </td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 text-slate-600 text-xs sm:text-sm">${p.total_volume || '-'}</td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm">
-                            ${p.recent_ktv_month ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-teal-50 text-teal-700">' + p.recent_ktv_month + ' 月</span>' : '<span class="text-slate-400">-</span>'}
+                            ${p.recent_ktv_date ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-teal-50 text-teal-700">' + (p.recent_ktv_date.slice(0,10)) + '</span>' : '<span class="text-slate-400">-</span>'}
                         </td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm">
-                            ${p.recent_pet_month ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-amber-50 text-amber-700">' + p.recent_pet_month + ' 月</span>' : '<span class="text-slate-400">-</span>'}
+                            ${p.recent_pet_date ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-amber-50 text-amber-700">' + (p.recent_pet_date.slice(0,10)) + '</span>' : '<span class="text-slate-400">-</span>'}
                         </td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm">
-                            ${p.recent_tube_change_month ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-rose-50 text-rose-700">' + p.recent_tube_change_month + ' 月</span>' : '<span class="text-slate-400">-</span>'}
+                            ${p.recent_tube_change_date ? '<span class="inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-full text-xs sm:text-sm font-medium bg-rose-50 text-rose-700">' + (p.recent_tube_change_date.slice(0,10)) + '</span>' : '<span class="text-slate-400">-</span>'}
                         </td>
                         <td class="py-2 sm:py-3 px-1 sm:px-4 text-center space-x-0.5 sm:space-x-1.5 whitespace-nowrap">
                             <button onclick="viewTrendChart('${p.medical_record_no}')" class="text-teal-600 hover:text-teal-800 font-medium text-[10px] sm:text-xs border border-teal-200 bg-teal-50 px-1 sm:px-2 py-0.5 sm:py-1 rounded hover:bg-teal-100 transition">📈</button>
@@ -613,10 +605,19 @@
             const currentMonth = new Date().getMonth() + 1;
 
             try {
-                // Fetch matching patient names for each indicator (so we can show both count and names)
-                const { data: ktvRows, error: e1 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_ktv_month', currentMonth).order('name', { ascending: true });
-                const { data: petRows, error: e2 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_pet_month', currentMonth).order('name', { ascending: true });
-                const { data: tubeRows, error: e3 } = await supabaseClient.from('capd_patients').select('name,medical_record_no').eq('recent_tube_change_month', currentMonth).order('name', { ascending: true });
+                // Fetch matching patient names for each indicator (use date fields and filter client-side by month)
+                const { data: ktvRaw, error: e1 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_ktv_date').not('recent_ktv_date','is',null).order('name', { ascending: true });
+                const { data: petRaw, error: e2 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_pet_date').not('recent_pet_date','is',null).order('name', { ascending: true });
+                const { data: tubeRaw, error: e3 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_tube_change_date').not('recent_tube_change_date','is',null).order('name', { ascending: true });
+                const ktvRows = (ktvRaw || []).filter(r => {
+                    try { return new Date(r.recent_ktv_date).getMonth() + 1 === currentMonth; } catch(e){return false}
+                });
+                const petRows = (petRaw || []).filter(r => {
+                    try { return new Date(r.recent_pet_date).getMonth() + 1 === currentMonth; } catch(e){return false}
+                });
+                const tubeRows = (tubeRaw || []).filter(r => {
+                    try { return new Date(r.recent_tube_change_date).getMonth() + 1 === currentMonth; } catch(e){return false}
+                });
 
                 if (e1 || e2 || e3) throw (e1 || e2 || e3);
 
@@ -630,25 +631,25 @@
 
                 if (ktvNamesEl) {
                     if (!ktvRows || ktvRows.length === 0) {
-                        ktvNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                        ktvNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
                     } else {
-                        ktvNamesEl.innerHTML = ktvRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
+                        ktvNamesEl.innerHTML = ktvRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
                     }
                 }
 
                 if (petNamesEl) {
                     if (!petRows || petRows.length === 0) {
-                        petNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                        petNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
                     } else {
-                        petNamesEl.innerHTML = petRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
+                        petNamesEl.innerHTML = petRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
                     }
                 }
 
                 if (tubeNamesEl) {
                     if (!tubeRows || tubeRows.length === 0) {
-                        tubeNamesEl.innerHTML = '<span class="text-xs text-slate-400">無符合病患</span>';
+                        tubeNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
                     } else {
-                        tubeNamesEl.innerHTML = tubeRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-[11px] font-medium px-3 py-1 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
+                        tubeNamesEl.innerHTML = tubeRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
                     }
                 }
             } catch (err) {
@@ -762,8 +763,8 @@
             document.getElementById('form_total_volume').value = p.total_volume || '';
             document.getElementById('form_recent_pet').value = p.recent_pet || '';
             document.getElementById('form_next_pet').value = p.next_pet || '';
-            document.getElementById('form_recent_ktv_month').value = p.recent_ktv_month || '';
-            document.getElementById('form_next_ktv_month').value = p.next_ktv_month || '';
+            document.getElementById('form_recent_ktv_date').value = p.recent_ktv_date ? p.recent_ktv_date.slice(0,10) : '';
+            document.getElementById('form_next_ktv_date').value = p.next_ktv_date ? p.next_ktv_date.slice(0,10) : '';
             
             document.getElementById('form_ktv_value_1').value = p.ktv_value_1 || '';
             document.getElementById('form_ktv_value_2').value = p.ktv_value_2 || '';
@@ -774,10 +775,10 @@
             document.getElementById('form_ktv_date_3').value = p.ktv_date_3 || '';
             document.getElementById('form_ktv_date_4').value = p.ktv_date_4 || '';
             
-            document.getElementById('form_recent_pet_month').value = p.recent_pet_month || '';
-            document.getElementById('form_next_pet_month').value = p.next_pet_month || '';
-            document.getElementById('form_recent_tube_change_month').value = p.recent_tube_change_month || '';
-            document.getElementById('form_next_tube_change_month').value = p.next_tube_change_month || '';
+            document.getElementById('form_recent_pet_date').value = p.recent_pet_date ? p.recent_pet_date.slice(0,10) : '';
+            document.getElementById('form_next_pet_date').value = p.next_pet_date ? p.next_pet_date.slice(0,10) : '';
+            document.getElementById('form_recent_tube_change_date').value = p.recent_tube_change_date ? p.recent_tube_change_date.slice(0,10) : '';
+            document.getElementById('form_next_tube_change_date').value = p.next_tube_change_date ? p.next_tube_change_date.slice(0,10) : '';
             document.getElementById('form_infection_peritonitis').value = p.infection_peritonitis || '';
             document.getElementById('form_exit_tunnel_infection').value = p.exit_tunnel_infection || '';
             document.getElementById('form_non_infectious_complications').value = p.non_infectious_complications || '';
@@ -816,8 +817,8 @@
                 total_volume: document.getElementById('form_total_volume').value.trim(),
                 recent_pet: document.getElementById('form_recent_pet').value.trim(),
                 next_pet: document.getElementById('form_next_pet').value.trim(),
-                recent_ktv_month: document.getElementById('form_recent_ktv_month').value ? parseInt(document.getElementById('form_recent_ktv_month').value) : null,
-                next_ktv_month: document.getElementById('form_next_ktv_month').value ? parseInt(document.getElementById('form_next_ktv_month').value) : null,
+                recent_ktv_date: document.getElementById('form_recent_ktv_date').value || null,
+                next_ktv_date: document.getElementById('form_next_ktv_date').value || null,
                 ktv_value_1: document.getElementById('form_ktv_value_1').value ? parseFloat(document.getElementById('form_ktv_value_1').value) : null,
                 ktv_value_2: document.getElementById('form_ktv_value_2').value ? parseFloat(document.getElementById('form_ktv_value_2').value) : null,
                 ktv_value_3: document.getElementById('form_ktv_value_3').value ? parseFloat(document.getElementById('form_ktv_value_3').value) : null,
@@ -826,10 +827,10 @@
                 ktv_date_2: document.getElementById('form_ktv_date_2').value || null,
                 ktv_date_3: document.getElementById('form_ktv_date_3').value || null,
                 ktv_date_4: document.getElementById('form_ktv_date_4').value || null,
-                recent_pet_month: document.getElementById('form_recent_pet_month').value ? parseInt(document.getElementById('form_recent_pet_month').value) : null,
-                next_pet_month: document.getElementById('form_next_pet_month').value ? parseInt(document.getElementById('form_next_pet_month').value) : null,
-                recent_tube_change_month: document.getElementById('form_recent_tube_change_month').value ? parseInt(document.getElementById('form_recent_tube_change_month').value) : null,
-                next_tube_change_month: document.getElementById('form_next_tube_change_month').value ? parseInt(document.getElementById('form_next_tube_change_month').value) : null,
+                recent_pet_date: document.getElementById('form_recent_pet_date').value || null,
+                next_pet_date: document.getElementById('form_next_pet_date').value || null,
+                recent_tube_change_date: document.getElementById('form_recent_tube_change_date').value || null,
+                next_tube_change_date: document.getElementById('form_next_tube_change_date').value || null,
                 infection_peritonitis: document.getElementById('form_infection_peritonitis').value.trim(),
                 exit_tunnel_infection: document.getElementById('form_exit_tunnel_infection').value.trim(),
                 non_infectious_complications: document.getElementById('form_non_infectious_complications').value.trim(),
@@ -866,7 +867,197 @@
             }
         }
 
+        // 與 savePatientForm 類似，但不接受事件（可被其他函式直接呼叫）
+        async function savePatientFormNoEvent() {
+            if (!requireAuth('儲存資料')) return false;
+            if (!supabaseClient) return alert("目前處於模擬狀態，無進行 Supabase 實際寫入。");
+
+            const isEdit = document.getElementById('form_is_edit').value === "true";
+            const medical_record_no = document.getElementById('form_medical_record_no').value.trim();
+
+            const payload = {
+                name: document.getElementById('form_name').value.trim(),
+                id: document.getElementById('form_id').value ? parseInt(document.getElementById('form_id').value) : null,
+                primary_nurse: document.getElementById('form_primary_nurse').value,
+                attending_physician: document.getElementById('form_attending_physician').value.trim(),
+                prescription: document.getElementById('form_prescription').value.trim(),
+                oh3_order: document.getElementById('form_oh3_order').value.trim(),
+                total_volume: document.getElementById('form_total_volume').value.trim(),
+                recent_pet: document.getElementById('form_recent_pet').value.trim(),
+                next_pet: document.getElementById('form_next_pet').value.trim(),
+                recent_ktv_date: document.getElementById('form_recent_ktv_date').value || null,
+                next_ktv_date: document.getElementById('form_next_ktv_date').value || null,
+                ktv_value_1: document.getElementById('form_ktv_value_1').value ? parseFloat(document.getElementById('form_ktv_value_1').value) : null,
+                ktv_value_2: document.getElementById('form_ktv_value_2').value ? parseFloat(document.getElementById('form_ktv_value_2').value) : null,
+                ktv_value_3: document.getElementById('form_ktv_value_3').value ? parseFloat(document.getElementById('form_ktv_value_3').value) : null,
+                ktv_value_4: document.getElementById('form_ktv_value_4').value ? parseFloat(document.getElementById('form_ktv_value_4').value) : null,
+                ktv_date_1: document.getElementById('form_ktv_date_1').value || null,
+                ktv_date_2: document.getElementById('form_ktv_date_2').value || null,
+                ktv_date_3: document.getElementById('form_ktv_date_3').value || null,
+                ktv_date_4: document.getElementById('form_ktv_date_4').value || null,
+                recent_pet_date: document.getElementById('form_recent_pet_date').value || null,
+                next_pet_date: document.getElementById('form_next_pet_date').value || null,
+                recent_tube_change_date: document.getElementById('form_recent_tube_change_date').value || null,
+                next_tube_change_date: document.getElementById('form_next_tube_change_date').value || null,
+                infection_peritonitis: document.getElementById('form_infection_peritonitis').value.trim(),
+                exit_tunnel_infection: document.getElementById('form_exit_tunnel_infection').value.trim(),
+                non_infectious_complications: document.getElementById('form_non_infectious_complications').value.trim(),
+                ct_ratio: document.getElementById('form_ct_ratio').value.trim(),
+                ekg: document.getElementById('form_ekg').value.trim(),
+                cv_echo: document.getElementById('form_cv_echo').value.trim(),
+                abd_sono: document.getElementById('form_abd_sono').value.trim(),
+                hbsag: document.getElementById('form_hbsag').value.trim(),
+                anti_hcv: document.getElementById('form_anti_hcv').value.trim(),
+                anti_hiv: document.getElementById('form_anti_hiv').value.trim(),
+                memo: document.getElementById('form_memo').value.trim(),
+                phone: document.getElementById('form_phone').value.trim(),
+                address: document.getElementById('form_address').value.trim()
+            };
+
+            try {
+                if (isEdit) {
+                    const { error } = await supabaseClient.from('capd_patients').update(payload).eq('medical_record_no', medical_record_no);
+                    if (error) throw error;
+                } else {
+                    payload.medical_record_no = medical_record_no;
+                    const { error } = await supabaseClient.from('capd_patients').insert([payload]);
+                    if (error) throw error;
+                }
+                // refresh lists but keep modal open
+                fetchPatients();
+                fetchMonthlyStatistics();
+                return true;
+            } catch (err) {
+                alert('儲存失敗: ' + err.message);
+                return false;
+            }
+        }
+
         // 刪除功能
+        
+        // 將字串日期加上指定月數，回傳 YYYY-MM-DD
+        function addMonthsToDate(dateStr, months) {
+            const d = new Date(dateStr);
+            if (isNaN(d)) return null;
+            const y = d.getFullYear();
+            const m = d.getMonth();
+            const day = d.getDate();
+            const newDate = new Date(y, m + months, day);
+            // 若跨月導致日數偏移（例如 31 -> 30），修正為該月份最後一天
+            const corrected = new Date(newDate.getFullYear(), newDate.getMonth() + 1, 0);
+            if (newDate.getDate() !== day) {
+                return corrected.toISOString().slice(0,10);
+            }
+            return newDate.toISOString().slice(0,10);
+        }
+
+        // 取得表單中最新（最晚）的 Kt/V 日期，並將 recent 與 next (+6個月) 更新到資料庫
+        async function registerKtvAndExtend() {
+            if (!requireAuth('登錄並自動展延')) return;
+            const medical_record_no = document.getElementById('form_medical_record_no').value.trim();
+            if (!medical_record_no) return alert('請先選擇或輸入病歷號後再執行。');
+            // 先儲存所有表單欄位（包含 Kt/V 數值與日期）
+            const saved = await savePatientFormNoEvent();
+            if (!saved) return; 
+
+            const dates = [
+                document.getElementById('form_ktv_date_1').value,
+                document.getElementById('form_ktv_date_2').value,
+                document.getElementById('form_ktv_date_3').value,
+                document.getElementById('form_ktv_date_4').value
+            ].filter(Boolean).map(d => new Date(d));
+            if (!dates.length) return alert('請先填入至少一筆 Kt/V 日期。');
+
+            // 取最晚日期
+            const latest = new Date(Math.max.apply(null, dates));
+            const latestStr = latest.toISOString().slice(0,10);
+            const nextStr = addMonthsToDate(latestStr, 6);
+
+            if (!supabaseClient) return alert('目前為模擬狀態，無法寫入。');
+
+            try {
+                const { error } = await supabaseClient.from('capd_patients').update({ recent_ktv_date: latestStr, next_ktv_date: nextStr }).eq('medical_record_no', medical_record_no);
+                if (error) throw error;
+                // 更新表單顯示並重新整理
+                document.getElementById('form_recent_ktv_date').value = latestStr;
+                document.getElementById('form_next_ktv_date').value = nextStr;
+                alert('已登錄並將下次 Kt/V 展延 6 個月。');
+                fetchPatients();
+                fetchMonthlyStatistics();
+            } catch (err) {
+                alert('自動展延失敗: ' + err.message);
+            }
+        }
+
+        // 通用：從 DB 讀取指定欄位 (recent, next)，各加 6 個月後寫回
+        async function extendDateFields(medical_record_no, recentField, nextField) {
+            if (!requireAuth('自動展延')) return;
+            if (!medical_record_no) return alert('請先選擇病患或輸入病歷號。');
+            if (!supabaseClient) return alert('目前為模擬狀態，無法寫入。');
+
+            try {
+                const { data, error } = await supabaseClient.from('capd_patients').select(`${recentField},${nextField}`).eq('medical_record_no', medical_record_no).single();
+                if (error) throw error;
+
+                const curRecent = data[recentField];
+                const curNext = data[nextField];
+                if (!curRecent && !curNext) return alert('目前沒有可展延的日期欄位。');
+
+                const newRecent = curRecent ? addMonthsToDate(curRecent.slice(0,10), 6) : null;
+                const newNext = curNext ? addMonthsToDate(curNext.slice(0,10), 6) : null;
+
+                const upd = {};
+                if (newRecent) upd[recentField] = newRecent;
+                if (newNext) upd[nextField] = newNext;
+
+                const { error: uerr } = await supabaseClient.from('capd_patients').update(upd).eq('medical_record_no', medical_record_no);
+                if (uerr) throw uerr;
+
+                // 更新表單顯示（如果 modal 打開）
+                if (recentField === 'recent_ktv_date') document.getElementById('form_recent_ktv_date').value = newRecent || '';
+                if (nextField === 'next_ktv_date') document.getElementById('form_next_ktv_date').value = newNext || '';
+                if (recentField === 'recent_pet_date') document.getElementById('form_recent_pet_date').value = newRecent || '';
+                if (nextField === 'next_pet_date') document.getElementById('form_next_pet_date').value = newNext || '';
+                if (recentField === 'recent_tube_change_date') document.getElementById('form_recent_tube_change_date').value = newRecent || '';
+                if (nextField === 'next_tube_change_date') document.getElementById('form_next_tube_change_date').value = newNext || '';
+
+                fetchPatients();
+                fetchMonthlyStatistics();
+                alert('已將日期各展延 6 個月。');
+            } catch (err) {
+                alert('展延失敗: ' + err.message);
+            }
+        }
+
+        // 三個具名函式
+        function extendKtvDates() {
+            const mrn = document.getElementById('form_medical_record_no').value.trim();
+            extendDateFields(mrn, 'recent_ktv_date', 'next_ktv_date');
+        }
+
+        // Kt/V 自動展延：先儲存表單，再展延日期
+        async function extendKtvDatesAndSave() {
+            if (!requireAuth('自動展延')) return;
+            const mrn = document.getElementById('form_medical_record_no').value.trim();
+            if (!mrn) return alert('請先選擇病患或輸入病歷號。');
+            
+            // 先儲存表單（所有 Kt/V 數值與日期）
+            const saved = await savePatientFormNoEvent();
+            if (!saved) return;
+            
+            // 再展延 recent 與 next 日期各加 6 個月
+            await extendDateFields(mrn, 'recent_ktv_date', 'next_ktv_date');
+        }
+
+        function extendPetDates() {
+            const mrn = document.getElementById('form_medical_record_no').value.trim();
+            extendDateFields(mrn, 'recent_pet_date', 'next_pet_date');
+        }
+
+        function extendTubeDates() {
+            const mrn = document.getElementById('form_medical_record_no').value.trim();
+            extendDateFields(mrn, 'recent_tube_change_date', 'next_tube_change_date');
+        }
         async function deletePatient(medicalRecordNo) {
             if (!requireAuth('刪除資料')) return;
             if (!confirm(`確定要永久刪除病歷號為 [ ${medicalRecordNo} ] 的病患資料嗎？此操作無法還原。`)) return;
@@ -886,8 +1077,8 @@
         // 模擬環境用降級渲染常式 (在未填寫真實 Key 時供介面預覽)
         function renderMockTable() {
             currentPatientsData = [
-                { medical_record_no: "27091447", name: "林麗珠", primary_nurse: "第一組", prescription: "PD2 1.5%:2+2.5*1/1.5", recent_ktv_month: 4, ktv_date_1: "2026-04-01", ktv_date_2: "2026-04-08", ktv_date_3: "2026-04-15", ktv_date_4: "2026-04-22", recent_pet_month: 1, recent_tube_change_month: 1, ktv_value_1: 1.94, ktv_value_2: 1.82, ktv_value_3: 2.01, ktv_value_4: 1.99 },
-                { medical_record_no: "24115098", name: "王大同", primary_nurse: "第二組", prescription: "CAPD 2.5Lx3", recent_ktv_month: 6, ktv_date_1: "2026-06-02", ktv_date_2: "2026-06-09", ktv_date_3: null, ktv_date_4: null, recent_pet_month: 6, recent_tube_change_month: 3, ktv_value_1: 1.65, ktv_value_2: 1.72, ktv_value_3: null, ktv_value_4: null }
+                { medical_record_no: "27091447", name: "林麗珠", primary_nurse: "第一組", prescription: "PD2 1.5%:2+2.5*1/1.5", recent_ktv_date: "2026-04-01", ktv_date_1: "2026-04-01", ktv_date_2: "2026-04-08", ktv_date_3: "2026-04-15", ktv_date_4: "2026-04-22", recent_pet_date: "2026-01-15", recent_tube_change_date: "2026-01-20", ktv_value_1: 1.94, ktv_value_2: 1.82, ktv_value_3: 2.01, ktv_value_4: 1.99 },
+                { medical_record_no: "24115098", name: "王大同", primary_nurse: "第二組", prescription: "CAPD 2.5Lx3", recent_ktv_date: "2026-06-02", ktv_date_1: "2026-06-02", ktv_date_2: "2026-06-09", ktv_date_3: null, ktv_date_4: null, recent_pet_date: "2026-06-05", recent_tube_change_date: "2026-03-11", ktv_value_1: 1.65, ktv_value_2: 1.72, ktv_value_3: null, ktv_value_4: null }
             ];
             renderPatientTable(currentPatientsData);
             // demo counts/names
@@ -897,9 +1088,9 @@
             const ktvNamesEl = document.getElementById('statKtvNames');
             const petNamesEl = document.getElementById('statPetNames');
             const tubeNamesEl = document.getElementById('statTubeNames');
-            if (ktvNamesEl) ktvNamesEl.innerHTML = currentPatientsData.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 hover:bg-teal-100">${r.name}</button>`).join('');
-            if (petNamesEl) petNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_pet_month).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 hover:bg-amber-100">${r.name}</button>`).join('');
-            if (tubeNamesEl) tubeNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_tube_change_month).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-block text-xs px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 hover:bg-rose-100">${r.name}</button>`).join('');
+            if (ktvNamesEl) ktvNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_ktv_date).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
+            if (petNamesEl) petNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_pet_date).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
+            if (tubeNamesEl) tubeNamesEl.innerHTML = currentPatientsData.filter(r => r.recent_tube_change_date).map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
         }
     </script>
 </body>
