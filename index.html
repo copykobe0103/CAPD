@@ -26,7 +26,68 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-8 space-y-4 sm:space-y-8">
-        
+        <section class="bg-white/90 p-3 sm:p-6 rounded-[32px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 space-y-4 sm:space-y-6">
+            <div class="flex flex-col gap-3 md:flex-row md:justify-between md:items-center border-b border-slate-100 pb-3">
+                <div>
+                    <h2 class="text-lg font-semibold text-slate-900 border-l-4 border-teal-600 pl-3">當月醫療追蹤動態指標</h2>
+                    <p class="text-sm text-slate-500 mt-1">快速掌握本月 CAPD 關鍵指標</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2 rounded-[24px] border-2 border-slate-300 bg-gradient-to-r from-slate-700/5 to-slate-700/10 px-4 py-2.5 shadow-sm">
+                        <label class="text-sm font-semibold text-slate-700 whitespace-nowrap">系統查閱月份：</label>
+                        <select id="monthSelector" onchange="handleMonthChange()" class="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer transition">
+                            <option value="1">1 月份</option>
+                            <option value="2">2 月份</option>
+                            <option value="3">3 月份</option>
+                            <option value="4">4 月份</option>
+                            <option value="5">5 月份</option>
+                            <option value="6">6 月份</option>
+                            <option value="7">7 月份</option>
+                            <option value="8">8 月份</option>
+                            <option value="9">9 月份</option>
+                            <option value="10">10 月份</option>
+                            <option value="11">11 月份</option>
+                            <option value="12">12 月份</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 Kt/V 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold text-teal-700">Kt/V</span>
+                    </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statKtvCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statKtvNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 PET 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-amber-50 px-4 py-1.5 text-sm font-semibold text-amber-800">PET</span>
+                    </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statPetCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statPetNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期換管 本月符合人數</span>
+                        <span class="inline-flex items-center rounded-full bg-rose-50 px-4 py-1.5 text-sm font-semibold text-rose-700">換管</span>
+                    </div>
+                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
+                        <span id="statTubeCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
+                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
+                    </div>
+                    <div id="statTubeNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
+                </div>
+            </div>
+        </section>
         <section class="bg-white/90 p-3 sm:p-6 rounded-[32px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 space-y-4 sm:space-y-6">
             <h2 class="text-lg font-semibold text-slate-900 border-l-4 border-teal-600 pl-3">條件檢索與綜合篩選</h2>
             
@@ -69,50 +130,7 @@
             </div>
         </section>
 
-        <section class="bg-white/90 p-3 sm:p-6 rounded-[32px] border border-slate-200 shadow-sm ring-1 ring-slate-200/70 space-y-4 sm:space-y-6">
-            <div class="flex flex-col gap-3 md:flex-row md:justify-between md:items-center border-b border-slate-100 pb-3">
-                <div>
-                    <h2 class="text-lg font-semibold text-slate-900 border-l-4 border-teal-600 pl-3">當月醫療追蹤動態指標</h2>
-                    <p class="text-sm text-slate-500 mt-1">快速掌握本月 CAPD 關鍵指標</p>
-                </div>
-                <span id="currentMonthLabel" class="text-sm font-medium text-teal-700 bg-teal-50 px-3 py-1 rounded-full"></span>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 Kt/V 本月符合人數</span>
-                        <span class="inline-flex items-center rounded-full bg-teal-50 px-4 py-1.5 text-sm font-semibold text-teal-700">Kt/V</span>
-                    </div>
-                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
-                        <span id="statKtvCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
-                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
-                    </div>
-                    <div id="statKtvNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
-                </div>
-                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期 PET 本月符合人數</span>
-                        <span class="inline-flex items-center rounded-full bg-amber-50 px-4 py-1.5 text-sm font-semibold text-amber-800">PET</span>
-                    </div>
-                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
-                        <span id="statPetCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
-                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
-                    </div>
-                    <div id="statPetNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
-                </div>
-                <div class="bg-white p-4 sm:p-6 rounded-[32px] border border-slate-200 shadow-lg/5 ring-1 ring-slate-200/70 flex flex-col justify-between transition hover:-translate-y-0.5 hover:shadow-lg">
-                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <span class="text-base sm:text-lg font-semibold text-slate-700">近期換管 本月符合人數</span>
-                        <span class="inline-flex items-center rounded-full bg-rose-50 px-4 py-1.5 text-sm font-semibold text-rose-700">換管</span>
-                    </div>
-                    <div class="mt-5 flex flex-col sm:flex-row sm:items-end gap-3">
-                        <span id="statTubeCount" class="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-950">0</span>
-                        <span class="text-base sm:text-lg font-medium text-slate-500 pb-0.5">人次</span>
-                    </div>
-                    <div id="statTubeNames" class="mt-5 min-h-[3.5rem] rounded-3xl bg-slate-50 p-3 flex flex-wrap gap-2 items-center text-sm sm:text-base text-slate-700"></div>
-                </div>
-            </div>
-        </section>
+        
 
         <section class="bg-white rounded-[32px] border border-slate-200 shadow-sm overflow-hidden ring-1 ring-slate-200/70">
             <div class="px-3 sm:px-6 py-3 sm:py-4 border-b border-slate-200 bg-slate-50/80 flex flex-col gap-2 sm:gap-3 md:flex-row md:justify-between md:items-center">
@@ -123,14 +141,13 @@
                 <table class="min-w-full bg-white text-left border-collapse">
                     <thead>
                         <tr class="bg-slate-100 border-b border-slate-200 text-slate-600 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em]">
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">病歷號</th>
+                                    <th class="py-2 sm:py-4 px-2 sm:px-4">病歷號 / 主護</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">姓名</th>
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">主護</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">處方 / Order</th>
                             <th class="py-2 sm:py-4 px-2 sm:px-4">總量</th>
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">Kt/V 日期</th>
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">PET月份</th>
-                            <th class="py-2 sm:py-4 px-2 sm:px-4">換管月份</th>
+                            <th class="py-2 sm:py-4 px-2 sm:px-4">近期 Kt/V 日期</th>
+                            <th class="py-2 sm:py-4 px-2 sm:px-4">近期 PET日期</th>
+                            <th class="py-2 sm:py-4 px-2 sm:px-4">近期 換管日期</th>
                             <th class="py-2 sm:py-4 px-1 sm:px-4 text-center">操作</th>
                         </tr>
                     </thead>
@@ -153,211 +170,243 @@
             <form id="patientForm" onsubmit="savePatientForm(event)" class="p-3 sm:p-6 overflow-y-auto space-y-3 sm:space-y-4 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                 <input type="hidden" id="form_is_edit" value="false">
 
-                <!-- 生理資料 -->
-                <div class="md:col-span-2 border-b border-slate-200 pb-3">
-                    <h4 class="text-sm font-semibold text-slate-900">生理資料</h4>
-                    <p class="text-xs text-slate-500">病患基本資訊與主要照護醫護人員</p>
-                </div>
-                <div class="space-y-1 md:col-span-1">
-                    <label class="text-xs font-bold text-slate-600">病歷號 (主鍵，不可修改) *</label>
-                    <input type="text" id="form_medical_record_no" required class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1 md:col-span-1">
-                    <label class="text-xs font-bold text-slate-600">姓名 *</label>
-                    <input type="text" id="form_name" required class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">編號</label>
-                    <input type="number" id="form_id" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">負責主護</label>
-                    <select id="form_primary_nurse" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                        <option value="第一組">第一組</option>
-                        <option value="第二組">第二組</option>
-                        <option value="第三組">第三組</option>
-                        <option value="第四組">第四組</option>
-                    </select>
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">主治醫師 (VS)</label>
-                    <input type="text" id="form_attending_physician" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1 md:col-span-2">
-                    <label class="text-xs font-bold text-slate-600">處方</label>
-                    <input type="text" id="form_prescription" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">OH3 Order</label>
-                    <input type="text" id="form_oh3_order" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">Total Volume</label>
-                    <input type="text" id="form_total_volume" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-
-                <!-- 檢驗資料 -->
-                <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
-                    <h4 class="text-sm font-semibold text-slate-900">檢驗資料</h4>
-                    <p class="text-xs text-slate-500">Kt/V 與 PET / 換管相關項目</p>
-                </div>
-                <div class="md:col-span-2 flex items-start gap-4">
-                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">近期 Kt/V 日期</label>
-                            <input type="date" id="form_recent_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">下次 Kt/V 日期</label>
-                            <input type="date" id="form_next_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <button type="button" onclick="extendKtvDatesAndSave()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-semibold">Kt/V 自動展延 (+6月)</button>
-                    </div>
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">近期 PET</label>
-                    <input type="text" id="form_recent_pet" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">下次 PET</label>
-                    <input type="text" id="form_next_pet" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="md:col-span-2 flex items-start gap-4">
-                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">近期 PET 日期</label>
-                            <input type="date" id="form_recent_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">下次 PET 日期</label>
-                            <input type="date" id="form_next_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <button type="button" onclick="extendPetDates()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-semibold">PET 自動展延 (+6月)</button>
-                    </div>
-                </div>
-                <div class="md:col-span-2 flex items-start gap-4">
-                    <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">近期 換管 日期</label>
-                            <input type="date" id="form_recent_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold text-slate-600">下次 換管 日期</label>
-                            <input type="date" id="form_next_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <button type="button" onclick="extendTubeDates()" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-2xl font-semibold">換管 自動展延 (+6月)</button>
-                    </div>
-                </div>
-                <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
-                    <h5 class="text-sm font-semibold text-slate-900">Kt/V 量測</h5>
-                </div>
-                <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(1) Kt/V 數值</label>
-                        <input type="number" step="0.01" id="form_ktv_value_1" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(2) Kt/V 數值</label>
-                        <input type="number" step="0.01" id="form_ktv_value_2" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(3) Kt/V 數值</label>
-                        <input type="number" step="0.01" id="form_ktv_value_3" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(4) Kt/V 數值</label>
-                        <input type="number" step="0.01" id="form_ktv_value_4" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                </div>
-                <div class="md:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(1) Kt/V 日期</label>
-                        <input type="date" id="form_ktv_date_1" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(2) Kt/V 日期</label>
-                        <input type="date" id="form_ktv_date_2" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(3) Kt/V 日期</label>
-                        <input type="date" id="form_ktv_date_3" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                    </div>
-                    <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-600">(4) Kt/V 日期</label>
-                        <input type="date" id="form_ktv_date_4" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div class="md:col-span-2">
+                    <div class="flex flex-wrap gap-2 mb-4 bg-slate-100/80 p-3 rounded-[24px] border border-slate-200 shadow-sm">
+                        <button type="button" data-tab="basic" class="patient-modal-tab-button px-4 py-2 rounded-2xl bg-teal-600 text-white text-sm font-medium shadow-sm" onclick="switchPatientModalTab('basic')">基本資料</button>
+                        <button type="button" data-tab="labs" class="patient-modal-tab-button px-4 py-2 rounded-2xl bg-white text-slate-700 border border-slate-200 text-sm font-medium shadow-sm" onclick="switchPatientModalTab('labs')">檢驗資料</button>
+                        <button type="button" data-tab="imaging" class="patient-modal-tab-button px-4 py-2 rounded-2xl bg-white text-slate-700 border border-slate-200 text-sm font-medium shadow-sm" onclick="switchPatientModalTab('imaging')">影像檢查</button>
+                        <button type="button" data-tab="notes" class="patient-modal-tab-button px-4 py-2 rounded-2xl bg-white text-slate-700 border border-slate-200 text-sm font-medium shadow-sm" onclick="switchPatientModalTab('notes')">備註與聯絡</button>
                     </div>
                 </div>
 
+                <div data-modal-tab="basic" class="md:col-span-2 rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-teal-50/70 p-4 sm:p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-teal-600/10 text-sm font-semibold text-teal-700">01</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-900">基本資料</h4>
+                            <p class="text-xs text-slate-500">病患身份與照護資訊</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">病歷號 (主鍵，不可修改) *</label>
+                            <input type="text" id="form_medical_record_no" required class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">姓名 *</label>
+                            <input type="text" id="form_name" required class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">編號</label>
+                            <input type="number" id="form_id" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">負責主護</label>
+                            <select id="form_primary_nurse" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                                <option value="第一組">第一組</option>
+                                <option value="第二組">第二組</option>
+                                <option value="第三組">第三組</option>
+                                <option value="第四組">第四組</option>
+                            </select>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">主治醫師 (VS)</label>
+                            <input type="text" id="form_attending_physician" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">處方</label>
+                            <input type="text" id="form_prescription" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">OH3 Order</label>
+                            <input type="text" id="form_oh3_order" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">Total Volume</label>
+                            <input type="text" id="form_total_volume" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                    </div>
+                </div>
 
+                <div data-modal-tab="labs" class="md:col-span-2 hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-50/70 p-4 sm:p-5 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-blue-600/10 text-sm font-semibold text-blue-700">02</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-900">檢驗資料</h4>
+                            <p class="text-xs text-slate-500">Kt/V、PET與換管追蹤紀錄</p>
+                        </div>
+                    </div>
+                    <div class="rounded-[24px] border border-slate-200 bg-white/90 p-4 shadow-sm space-y-4">
+                        <div class="flex items-center justify-between gap-2">
+                            <h5 class="text-sm font-semibold text-slate-900">近期追蹤日期</h5>
+                            <span class="rounded-full bg-teal-50 px-3 py-1 text-[11px] font-medium text-teal-700">日期區塊</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">近期 Kt/V 日期</label>
+                                <input type="date" id="form_recent_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">下次 Kt/V 日期</label>
+                                <input type="date" id="form_next_ktv_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-[24px] border border-slate-200 bg-white/90 p-4 shadow-sm space-y-3">
+                        <div class="flex flex-wrap gap-3 items-center justify-between">
+                            <h5 class="text-sm font-semibold text-slate-900">自動展延</h5>
+                            <div class="flex flex-wrap gap-2">
+                                <button type="button" onclick="extendKtvDatesAndSave()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-semibold shadow-sm">Kt/V 自動展延 (+6月)</button>
+                                <button type="button" onclick="extendPetDates()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-2xl font-semibold shadow-sm">PET 自動展延 (+6月)</button>
+                                <button type="button" onclick="extendTubeDates()" class="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-2xl font-semibold shadow-sm">換管 自動展延 (+6月)</button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">近期 PET</label>
+                                <input type="text" id="form_recent_pet" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">下次 PET</label>
+                                <input type="text" id="form_next_pet" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">近期 PET 日期</label>
+                                <input type="date" id="form_recent_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">下次 PET 日期</label>
+                                <input type="date" id="form_next_pet_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 focus:outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">近期 換管 日期</label>
+                                <input type="date" id="form_recent_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">下次 換管 日期</label>
+                                <input type="date" id="form_next_tube_change_date" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-[24px] border border-slate-200 bg-white/90 p-4 shadow-sm space-y-3">
+                        <h5 class="text-sm font-semibold text-slate-900">Kt/V 量測</h5>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(1) Kt/V 數值</label>
+                                <input type="number" step="0.01" id="form_ktv_value_1" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(2) Kt/V 數值</label>
+                                <input type="number" step="0.01" id="form_ktv_value_2" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(3) Kt/V 數值</label>
+                                <input type="number" step="0.01" id="form_ktv_value_3" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(4) Kt/V 數值</label>
+                                <input type="number" step="0.01" id="form_ktv_value_4" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(1) Kt/V 日期</label>
+                                <input type="date" id="form_ktv_date_1" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(2) Kt/V 日期</label>
+                                <input type="date" id="form_ktv_date_2" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(3) Kt/V 日期</label>
+                                <input type="date" id="form_ktv_date_3" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-600">(4) Kt/V 日期</label>
+                                <input type="date" id="form_ktv_date_4" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- 影像檢查 -->
-                <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
-                    <h4 class="text-sm font-semibold text-slate-900">影像檢查</h4>
-                    <p class="text-xs text-slate-500">相關檢查與病毒檢測結果</p>
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">CT Ratio</label>
-                    <input type="text" id="form_ct_ratio" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">EKG</label>
-                    <input type="text" id="form_ekg" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">CV Echo</label>
-                    <input type="text" id="form_cv_echo" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">腹部超音波</label>
-                    <input type="text" id="form_abd_sono" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">HbsAg</label>
-                    <input type="text" id="form_hbsag" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">Anti-HCV</label>
-                    <input type="text" id="form_anti_hcv" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">Anti-HIV</label>
-                    <input type="text" id="form_anti_hiv" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div data-modal-tab="imaging" class="md:col-span-2 hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-amber-50/70 p-4 sm:p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-600/10 text-sm font-semibold text-amber-700">03</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-900">影像檢查</h4>
+                            <p class="text-xs text-slate-500">相關檢查與病毒檢測結果</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">CT Ratio</label>
+                            <input type="text" id="form_ct_ratio" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">EKG</label>
+                            <input type="text" id="form_ekg" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">CV Echo</label>
+                            <input type="text" id="form_cv_echo" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">腹部超音波</label>
+                            <input type="text" id="form_abd_sono" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">HbsAg</label>
+                            <input type="text" id="form_hbsag" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">Anti-HCV</label>
+                            <input type="text" id="form_anti_hcv" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">Anti-HIV</label>
+                            <input type="text" id="form_anti_hiv" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 備註與聯絡 -->
-                <div class="md:col-span-2 border-t border-slate-200 pt-3 pb-3">
-                    <h4 class="text-sm font-semibold text-slate-900">備註與聯絡</h4>
-                    <p class="text-xs text-slate-500">所有附加備註與聯絡資訊</p>
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">腹膜炎感染</label>
-                    <input type="text" id="form_infection_peritonitis" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1">
-                    <label class="text-xs font-bold text-slate-600">出口道感染</label>
-                    <input type="text" id="form_exit_tunnel_infection" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1 md:col-span-2">
-                    <label class="text-xs font-bold text-slate-600">非感染性併發症</label>
-                    <input type="text" id="form_non_infectious_complications" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1 md:col-span-2">
-                    <label class="text-xs font-bold text-slate-600">備註</label>
-                    <textarea id="form_memo" rows="3" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none"></textarea>
-                </div>
-                <div class="space-y-1 md:col-span-1">
-                    <label class="text-xs font-bold text-slate-600">聯絡電話</label>
-                    <input type="text" id="form_phone" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
-                </div>
-                <div class="space-y-1 md:col-span-1">
-                    <label class="text-xs font-bold text-slate-600">居住地址</label>
-                    <input type="text" id="form_address" class="w-full border border-slate-300 rounded-lg p-2 text-sm focus:border-teal-500 focus:outline-none">
+                <div data-modal-tab="notes" class="md:col-span-2 hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-rose-50/70 p-4 sm:p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-rose-600/10 text-sm font-semibold text-rose-700">04</div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-slate-900">備註與聯絡</h4>
+                            <p class="text-xs text-slate-500">所有附加備註與聯絡資訊</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">腹膜炎感染</label>
+                            <input type="text" id="form_infection_peritonitis" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">出口道感染</label>
+                            <input type="text" id="form_exit_tunnel_infection" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">非感染性併發症</label>
+                            <input type="text" id="form_non_infectious_complications" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1 md:col-span-2">
+                            <label class="text-xs font-bold text-slate-600">備註</label>
+                            <textarea id="form_memo" rows="3" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none"></textarea>
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">聯絡電話</label>
+                            <input type="text" id="form_phone" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                        <div class="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm space-y-1">
+                            <label class="text-xs font-bold text-slate-600">居住地址</label>
+                            <input type="text" id="form_address" class="w-full bg-white border border-slate-200 rounded-3xl px-4 py-3 text-sm text-slate-800 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 focus:outline-none">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="md:col-span-2 border-t border-slate-200 pt-4 flex justify-end space-x-2">
@@ -477,10 +526,85 @@
             });
         }
 
-        // 標示當前系統月份
+        // 初始化月份選擇器，預設為當前月份
+        let selectedMonth = new Date().getMonth() + 1;
+        
         function displayCurrentMonthInfo() {
             const currentMonth = new Date().getMonth() + 1;
-            document.getElementById('currentMonthLabel').innerText = `系統判定當前月份：${currentMonth} 月`;
+            selectedMonth = currentMonth;
+            const monthSelector = document.getElementById('monthSelector');
+            if (monthSelector) {
+                monthSelector.value = currentMonth.toString();
+            }
+        }
+
+        // 月份改變時的事件處理
+        function handleMonthChange() {
+            const monthSelector = document.getElementById('monthSelector');
+            if (!monthSelector) return;
+            selectedMonth = parseInt(monthSelector.value);
+            fetchMonthlyStatisticsForMonth(selectedMonth);
+        }
+
+        // 根據選定的月份更新統計指標
+        async function fetchMonthlyStatisticsForMonth(month) {
+            if (!supabaseClient) return;
+            
+            try {
+                // 查詢各類別的記錄
+                const { data: ktvRaw, error: e1 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_ktv_date').not('recent_ktv_date','is',null).order('name', { ascending: true });
+                const { data: petRaw, error: e2 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_pet_date').not('recent_pet_date','is',null).order('name', { ascending: true });
+                const { data: tubeRaw, error: e3 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_tube_change_date').not('recent_tube_change_date','is',null).order('name', { ascending: true });
+                
+                if (e1 || e2 || e3) throw (e1 || e2 || e3);
+                
+                // 過濾符合選定月份的記錄
+                const ktvRows = (ktvRaw || []).filter(r => {
+                    try { return new Date(r.recent_ktv_date).getMonth() + 1 === month; } catch(e){return false}
+                });
+                const petRows = (petRaw || []).filter(r => {
+                    try { return new Date(r.recent_pet_date).getMonth() + 1 === month; } catch(e){return false}
+                });
+                const tubeRows = (tubeRaw || []).filter(r => {
+                    try { return new Date(r.recent_tube_change_date).getMonth() + 1 === month; } catch(e){return false}
+                });
+                
+                // 更新計數
+                document.getElementById('statKtvCount').innerText = (ktvRows && ktvRows.length) ? ktvRows.length : 0;
+                document.getElementById('statPetCount').innerText = (petRows && petRows.length) ? petRows.length : 0;
+                document.getElementById('statTubeCount').innerText = (tubeRows && tubeRows.length) ? tubeRows.length : 0;
+                
+                // 更新病患名單
+                const ktvNamesEl = document.getElementById('statKtvNames');
+                const petNamesEl = document.getElementById('statPetNames');
+                const tubeNamesEl = document.getElementById('statTubeNames');
+                
+                if (ktvNamesEl) {
+                    if (!ktvRows || ktvRows.length === 0) {
+                        ktvNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
+                    } else {
+                        ktvNamesEl.innerHTML = ktvRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
+                    }
+                }
+                
+                if (petNamesEl) {
+                    if (!petRows || petRows.length === 0) {
+                        petNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
+                    } else {
+                        petNamesEl.innerHTML = petRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
+                    }
+                }
+                
+                if (tubeNamesEl) {
+                    if (!tubeRows || tubeRows.length === 0) {
+                        tubeNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
+                    } else {
+                        tubeNamesEl.innerHTML = tubeRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
+                    }
+                }
+            } catch (err) {
+                console.error("讀取動態統計指標失敗:", err.message);
+            }
         }
 
         // 防抖動機制：打字停頓 300 毫秒才觸發搜尋，優化效能
@@ -570,9 +694,13 @@
             data.forEach(p => {
                 tbody.innerHTML += `
                     <tr class="hover:bg-slate-50/80 transition">
-                        <td class="py-2 sm:py-3 px-2 sm:px-4 font-mono font-medium text-slate-900 text-xs sm:text-sm">${p.medical_record_no}</td>
+                        <td class="py-2 sm:py-3 px-2 sm:px-4 max-w-[12rem]">
+                            <div class="space-y-1">
+                                <div class="font-mono font-medium text-slate-900 text-xs sm:text-sm truncate" title="${p.medical_record_no}">${p.medical_record_no}</div>
+                                <div class="text-[11px] sm:text-xs text-slate-500 whitespace-nowrap" title="${p.primary_nurse || '未指定'}">主護：${p.primary_nurse || '未指定'}</div>
+                            </div>
+                        </td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 font-semibold text-slate-900 text-xs sm:text-sm">${p.name || ''}</td>
-                        <td class="py-2 sm:py-3 px-2 sm:px-4"><span class="bg-slate-100 text-slate-700 px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs font-medium">${p.primary_nurse || '未指定'}</span></td>
                         <td class="py-2 sm:py-3 px-2 sm:px-4 max-w-xs text-slate-600 text-xs sm:text-sm">
                             <div class="space-y-1">
                                 <div class="font-medium text-slate-900 truncate" title="${p.prescription || '-'}">${p.prescription || '-'}</div>
@@ -601,60 +729,8 @@
 
         // 功能 7: 指標統計（進網頁後，下方自動顯示本月符合人次）
         async function fetchMonthlyStatistics() {
-            if (!supabaseClient) return;
-            const currentMonth = new Date().getMonth() + 1;
-
-            try {
-                // Fetch matching patient names for each indicator (use date fields and filter client-side by month)
-                const { data: ktvRaw, error: e1 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_ktv_date').not('recent_ktv_date','is',null).order('name', { ascending: true });
-                const { data: petRaw, error: e2 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_pet_date').not('recent_pet_date','is',null).order('name', { ascending: true });
-                const { data: tubeRaw, error: e3 } = await supabaseClient.from('capd_patients').select('name,medical_record_no,recent_tube_change_date').not('recent_tube_change_date','is',null).order('name', { ascending: true });
-                const ktvRows = (ktvRaw || []).filter(r => {
-                    try { return new Date(r.recent_ktv_date).getMonth() + 1 === currentMonth; } catch(e){return false}
-                });
-                const petRows = (petRaw || []).filter(r => {
-                    try { return new Date(r.recent_pet_date).getMonth() + 1 === currentMonth; } catch(e){return false}
-                });
-                const tubeRows = (tubeRaw || []).filter(r => {
-                    try { return new Date(r.recent_tube_change_date).getMonth() + 1 === currentMonth; } catch(e){return false}
-                });
-
-                if (e1 || e2 || e3) throw (e1 || e2 || e3);
-
-                document.getElementById('statKtvCount').innerText = (ktvRows && ktvRows.length) ? ktvRows.length : 0;
-                document.getElementById('statPetCount').innerText = (petRows && petRows.length) ? petRows.length : 0;
-                document.getElementById('statTubeCount').innerText = (tubeRows && tubeRows.length) ? tubeRows.length : 0;
-
-                const ktvNamesEl = document.getElementById('statKtvNames');
-                const petNamesEl = document.getElementById('statPetNames');
-                const tubeNamesEl = document.getElementById('statTubeNames');
-
-                if (ktvNamesEl) {
-                    if (!ktvRows || ktvRows.length === 0) {
-                        ktvNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
-                    } else {
-                        ktvNamesEl.innerHTML = ktvRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-teal-50 text-teal-700 shadow-sm ring-1 ring-teal-100 transition hover:bg-teal-100">${r.name}</button>`).join('');
-                    }
-                }
-
-                if (petNamesEl) {
-                    if (!petRows || petRows.length === 0) {
-                        petNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
-                    } else {
-                        petNamesEl.innerHTML = petRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-amber-50 text-amber-800 shadow-sm ring-1 ring-amber-100 transition hover:bg-amber-100">${r.name}</button>`).join('');
-                    }
-                }
-
-                if (tubeNamesEl) {
-                    if (!tubeRows || tubeRows.length === 0) {
-                        tubeNamesEl.innerHTML = '<span class="text-sm text-slate-400">無符合病患</span>';
-                    } else {
-                        tubeNamesEl.innerHTML = tubeRows.map(r => `<button onclick="editPatient('${r.medical_record_no}')" title="${r.medical_record_no}" class="inline-flex items-center text-sm sm:text-base font-semibold px-4 py-2 rounded-full bg-rose-50 text-rose-700 shadow-sm ring-1 ring-rose-100 transition hover:bg-rose-100">${r.name}</button>`).join('');
-                    }
-                }
-            } catch (err) {
-                console.error("讀取動態統計指標失敗:", err.message);
-            }
+            // 代理函數：調用新的月份篩選函數（使用選定的月份或當前月份）
+            await fetchMonthlyStatisticsForMonth(selectedMonth);
         }
 
         // 歷史趨勢圖：按下按鈕後依 ktv_value_1 ~ 4 繪製線條圖
@@ -738,10 +814,26 @@
             document.getElementById('form_medical_record_no').disabled = false;
             document.getElementById('modalTitle').innerText = "新增病患資料 (CAPD)";
             document.getElementById('patientModal').classList.remove('hidden');
+            switchPatientModalTab('basic');
         }
 
         function closePatientModal() {
             document.getElementById('patientModal').classList.add('hidden');
+        }
+
+        function switchPatientModalTab(tab) {
+            document.querySelectorAll('#patientForm [data-modal-tab]').forEach(panel => panel.classList.add('hidden'));
+            document.querySelectorAll('#patientForm .patient-modal-tab-button').forEach(button => {
+                button.classList.remove('bg-teal-600','text-white');
+                button.classList.add('bg-white','text-slate-700');
+            });
+            const activePanel = document.querySelector(`#patientForm [data-modal-tab="${tab}"]`);
+            const activeButton = document.querySelector(`#patientForm .patient-modal-tab-button[data-tab="${tab}"]`);
+            if (activePanel) activePanel.classList.remove('hidden');
+            if (activeButton) {
+                activeButton.classList.add('bg-teal-600','text-white');
+                activeButton.classList.remove('bg-white','text-slate-700');
+            }
         }
 
         // 修改功能：將資料帶入表單並開啟
@@ -795,6 +887,7 @@
 
             document.getElementById('modalTitle').innerText = `修改病患資料 (${p.name})`;
             document.getElementById('patientModal').classList.remove('hidden');
+            switchPatientModalTab('basic');
         }
 
         // 功能 6 與 修改：儲存與寫入資料庫
